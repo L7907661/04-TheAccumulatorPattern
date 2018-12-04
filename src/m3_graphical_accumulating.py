@@ -9,10 +9,11 @@ Additionally, it emphasizes that you must
 before you can implement a solution to the problem in Python.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher, Mark Hays,
-         Aaron Wilkin, their colleagues, and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         Aaron Wilkin, their colleagues, and Zeyu Liao.
+"""  # done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
+import math
 
 
 # -----------------------------------------------------------------------------
@@ -69,6 +70,15 @@ def run_test_draw_parallel_lines():
 
 
 def draw_parallel_lines(n, point, length, window):
+    a = point.x
+    b = point.y
+    m = a + length
+    for k in range(n):
+        l = rg.Line(rg.Point(a,b), rg.Point(m, b))
+        b = b + 30
+        l.attach_to(window)
+    window.render()
+
     """
     What comes in: The four arguments are:
       -- A positive integer n.
@@ -96,7 +106,7 @@ def draw_parallel_lines(n, point, length, window):
       :type window: rg.RoseWindow
     """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # done: 2. Implement and test this function.
     #          Tests have been written for you (above).
     #
     # CONSIDER using the ACCUMULATOR IN GRAPHICS pattern,
@@ -134,6 +144,14 @@ def run_test_draw_lines():
 
 
 def draw_lines(n, point, window):
+    a = point.x
+    b = point.y
+    for k in range(n):
+        c = 200 / (n - 1)
+        pY = (b - 100) + k * c
+        l = rg.Line(rg.Point(a , b),rg.Point(a + 100,pY))
+        l.attach_to(window)
+    window.render()
     """
     What comes in: The three arguments are:
       -- A integer n that is at least 2.
@@ -161,7 +179,7 @@ def draw_lines(n, point, window):
       :type window: rg.RoseWindow
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # done: 3. Implement and test this function.
     #          Tests have been written for you (above).
     #
     # CONSIDER using the ACCUMULATOR IN GRAPHICS pattern,
